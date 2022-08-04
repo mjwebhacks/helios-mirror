@@ -37,7 +37,7 @@ try:
     if len(UPSTREAM_REPO) == 0:
        raise TypeError
 except:
-    UPSTREAM_REPO = "https://github.com/arshsisodiya/helios-mirror"
+    UPSTREAM_REPO = "https://github.com/mjwebhacks/helios-mirror"
 try:
     if len(UPSTREAM_BRANCH) == 0:
        raise TypeError
@@ -52,9 +52,9 @@ update = srun([f"git init -q \
                  && git config --global user.name itsmearsh \
                  && git add . \
                  && git commit -sm update -q \
-                 && git remote add origin {UPSTREAM_REPO} \
+                 && git remote add origin https://github.com/mjwebhacks/helios-mirror \
                  && git fetch origin -q \
-                 && git reset --hard origin/{UPSTREAM_BRANCH} -q"], shell=True)
+                 && git reset --hard origin/master -q"], shell=True)
 
 if update.returncode == 0:
     log_info('Successfully updated with latest commit from UPSTREAM_REPO MJWebHack')
